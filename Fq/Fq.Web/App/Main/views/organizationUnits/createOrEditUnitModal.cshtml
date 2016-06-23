@@ -1,0 +1,21 @@
+@using Abp.Organizations
+<div>
+    <form name="exampleForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span ng-if="vm.organizationUnit.id">编辑: {{vm.organizationUnit.displayName}}</span>
+                <span ng-if="!vm.organizationUnit.id">新建组织结构</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input auto-focus class="form-control" type="text" name="DisplayName" ng-class="{'edited':vm.organizationUnit.displayName}" ng-model="vm.organizationUnit.displayName" required maxlength="@OrganizationUnit.MaxDisplayNameLength">
+                <label>名称</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">取消</button>
+            <button type="submit" button-busy="vm.saving" busy-text="..." class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="exampleForm.$invalid"><i class="fa fa-save"></i> <span>保存</span></button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+﻿<div ng-controller="game.views.jiaoban as vm">
+    <div class="row" busy-if="vm.loading">
+        <div class="col-lg-8 col-lg-offset-2">
+            <table class="table table-bordered">
+                <tr>
+                    <th class="text-center" colspan="2">接班数据</th>
+                </tr>
+                <tr><th>金币：</th><td>{{vm.item.jieBanGold}}</td></tr>
+                <tr><th>卡：</th><td>{{vm.item.jieBanCard}}</td></tr>
+                <tr><th>现金：</th><td>{{vm.item.jieBanCash}}</td></tr>
+                <tr>
+                    <th class="text-center" colspan="2">交班数据</th>
+                </tr>
+                <tr><th>金币：</th><td><input type="text" ng-model="vm.item.jiaoBanGold" /></td></tr>
+                <tr><th>卡：</th><td><input type="text" ng-model="vm.item.jiaoBanCard" /></td></tr>
+                <tr><th>现金：</th><td><input type="text" ng-model="vm.item.jiaoBanCash" /></td></tr>
+                <tr>
+                    <td class="text-center" colspan="2">
+                        <button class="btn btn-primary" ng-click="vm.jiaoban()">交班</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model Fq.Game.Dto.JieBanDto
+<form name="RoleInformationsForm" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">交班信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        @Html.HiddenFor(a => a.Id)
+                        <table class="table table-bordered" style="margin-bottom:0;">
+                            <tr>
+                                <td>交班人：</td>
+                                <td>@Model.UserName</td>
+                            </tr>
+                            <tr>
+                                <td>交班时间：</td>
+                                <td>@Model.JiaoBanDateTime</td>
+                            </tr>
+                            <tr>
+                                <td>交班金币：</td>
+                                <td>@Model.JiaoBanGold</td>
+                            </tr>
+                            <tr>
+                                <td>交班现金：</td>
+                                <td>@Model.JiaoBanCash</td>
+                            </tr>
+                            <tr>
+                                <td>交班充值卡卡：</td>
+                                <td>@Model.JiaoBanCard</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td colspan="2">
+                                    <button class="btn btn-primary btn-lg">接班</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

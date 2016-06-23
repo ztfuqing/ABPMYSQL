@@ -1,0 +1,53 @@
+﻿@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+@using Fq.Web.Bundling
+@using System.Web.Optimization
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fq</title>
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+    @Styles.Render("~/Bundles/Front/libs/css")
+    @Styles.Render("~/Bundles/Front/metronic/css")
+    @Styles.Render("~/Bundles/Front/css")
+
+    @RenderSection("Styles", false)
+
+    <script type="text/javascript">
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+    @Scripts.Render("~/libs/jquery/jquery.js")
+    @Scripts.Render("~/libs/jquery-validation/js/jquery.validate.min.js")
+    @Scripts.Render("~/libs/bootstrap/bootstrap.js")
+    @Scripts.Render("~/libs/jquery-blockui/jquery.blockUI.js")
+    @Scripts.Render("~/libs/backstretch/jquery.backstretch.js")
+    @Scripts.Render("~/libs/toastr/toastr.js")
+    @Scripts.Render("~/libs/spinjs/spin.js")
+    @Scripts.Render("~/libs/spinjs/jquery.spin.js")
+    @Scripts.Render("~/libs/sweetalert/sweet-alert.min.js")
+    @Scripts.Render("~/Abp/Framework/scripts/abp.js")
+    @Scripts.Render("~/Abp/Framework/scripts/libs/abp.jquery.js")
+    @Scripts.Render("~/Abp/Framework/scripts/libs/abp.toastr.js")
+    @Scripts.Render("~/Abp/Framework/scripts/libs/abp.blockUI.js")
+    @Scripts.Render("~/Abp/Framework/scripts/libs/abp.spin.js")
+    @Scripts.Render("~/Abp/Framework/scripts/libs/abp.sweet-alert.js")
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+    @Scripts.Render("~/Bundles/Common/js")
+    @RenderSection("Scripts", false)
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

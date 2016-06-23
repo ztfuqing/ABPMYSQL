@@ -1,0 +1,74 @@
+﻿#NotificationGrid {
+  color: #000;
+}
+#NotificationGrid a {
+  color: #000;
+}
+#NotificationGrid .notification-read {
+  color: #999;
+}
+#NotificationGrid .notification-read a {
+  color: #999;
+}
+
+
+#UserNotificationDropdown {
+  max-width: 320px;
+  width: 320px;
+}
+#UserNotificationDropdown a.user-notification-item {
+  cursor: default;
+  color: #ccc;
+}
+#UserNotificationDropdown a.user-notification-item:hover {
+  text-decoration: none;
+}
+#UserNotificationDropdown a.user-notification-item.user-notification-item-unread {
+  color: #fff;
+}
+#UserNotificationDropdown a.user-notification-item.user-notification-item-unread .notification-time {
+  color: #ccc;
+}
+#UserNotificationDropdown a.user-notification-item.user-notification-item-clickable {
+  cursor: pointer;
+}
+#UserNotificationDropdown a.user-notification-item .set-as-read-text {
+  color: #00dd00;
+  cursor: pointer;
+}
+#UserNotificationDropdown a.user-notification-item .fa-info {
+  color: #00ffff;
+}
+#UserNotificationDropdown a.user-notification-item .fa-check {
+  color: #0f0;
+}
+#UserNotificationDropdown a.user-notification-item .fa-warning {
+  color: #ffa200;
+}
+#UserNotificationDropdown a.user-notification-item .fa-bolt,
+#UserNotificationDropdown a.user-notification-item .fa-bomb {
+  color: #ff0000;
+}
+#UserNotificationDropdown a {
+  color: #fff;
+}
+#UserNotificationDropdown .notifications-header {
+  /*position: relative;*/
+  text-align: left;
+  min-height: 35px;
+  padding: 8px;
+  margin: 0;
+}
+#UserNotificationDropdown .notifications-header a:hover {
+  text-decoration: underline;
+}
+#UserNotificationDropdown .notifications-footer {
+  min-height: 35px;
+  padding: 8px;
+  margin: 0;
+}
+#UserNotificationDropdown .notification-empty-text {
+  color: #ccc;
+  padding: 10px;
+  text-align: center;
+}

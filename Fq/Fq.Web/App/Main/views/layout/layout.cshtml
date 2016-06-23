@@ -1,0 +1,84 @@
+﻿@using System.Threading
+@using System.Web.Optimization
+@using Abp.Extensions
+@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+@using Fq.Web.Bundling
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js" data-ng-app="app"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js" data-ng-app="app"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" data-ng-app="app">
+<!--<![endif]-->
+<head>
+    <title>后台管理系统</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    @Styles.Render("~/Bundles/App/libs/css")
+    <link id="ng_load_plugins_before" />
+    @Styles.Render("~/Bundles/App/metronic/css")
+    @Styles.Render("~/Bundles/Common/css")
+    @Styles.Render("~/Bundles/App/css")
+
+    <script type="text/javascript">
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+        window.UEDITOR_HOME_URL = "/libs/ueditor/";
+    </script>
+</head>
+<body ng-controller="common.views.layout as vm" class="page-header-fixed page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+
+    <div ng-spinner-bar class="page-spinner-bar">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+    <div data-ng-include="'~/App/Main/views/layout/header.cshtml'" data-ng-controller="common.views.layout.header as vm" class="page-header navbar navbar-fixed-top">
+    </div>
+
+    <div class="clearfix">
+    </div>
+
+    <div class="page-container">
+        <div data-ng-include="'~/App/Main/views/layout/sidebar.cshtml'" data-ng-controller="common.views.layout.sidebar as vm" class="page-sidebar-wrapper"></div>
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div ui-view class="fade-in-up">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!--[if lt IE 9]>
+        <script src="~/libs/respond/respond.min.js"></script>
+        <script src="~/libs/html5shiv/html5shiv.js"></script>
+        <script src="~/libs/excanvas/excanvas.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/Bundles/App/libs/js")
+
+    <script>
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+        moment.locale('zh-cn'); //Localizing moment.js
+
+    </script>
+
+    @*@Html.IncludeScript(ScriptPaths.Angular_Localization)
+    @Html.IncludeScript(ScriptPaths.Bootstrap_Select_Localization)*@
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/api/AbpServiceProxies/GetAll?type=angular&v=@(Clock.Now.Ticks)"></script>
+    <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+
+    <script src="~/signalr/hubs"></script>
+    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
+
+    @Scripts.Render("~/Bundles/App/metronic/js")
+    @Scripts.Render("~/Bundles/Common/js")
+    @Scripts.Render("~/Bundles/App/js")
+</body>
+</html>

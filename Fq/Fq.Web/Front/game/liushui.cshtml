@@ -1,0 +1,32 @@
+﻿<div  ng-controller="game.views.liushui as vm">
+    <div class="row" busy-if="vm.loading">
+        <div class="col-lg-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        用户
+                    </th>
+                    <th>类型</th>
+                    <th>金额</th>
+                    <th>金币</th>
+                    <th>时间</th>
+                </tr>
+                <tr ng-repeat="item in vm.items">
+                    <td>{{item.userName}}</td>
+                    <td>
+                        {{item.tradingType}}
+                    </td>
+                    <td>
+                        {{item.amount}}
+                    </td>
+                    <td>
+                        {{item.gold}}
+                    </td>
+                    <td>
+                        {{item.createTime | momentFormat: 'YYYY-MM-DD HH:mm:ss'}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

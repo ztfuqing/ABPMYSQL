@@ -1,0 +1,98 @@
+﻿<div ng-controller="game.views.index as vm">
+    <div class="row margin-bottom-10">
+        <div class="col-lg-10">
+            客户姓名：<input type="text" name="Name" ng-model="vm.item.userName" />
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-block btn-success">交班</button>
+        </div>
+    </div>
+    <div class="row chongzhi">
+        <div class="col-lg-9">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">充值</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th colspan="5" class="text-center">
+                                卡充值
+                            </th>
+                        </tr>
+                        <tr class="text-center">
+                            <td rowspan="2" style="vertical-align:middle;width:100px;">充值</td>
+                            <td>盛大</td>
+                            <td>移动</td>
+                            <td>电信</td>
+                            <td>联通</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td><input type="text" ng-model="vm.item.shengDa" /></td>
+                            <td><input type="text" ng-model="vm.item.yiDong" /></td>
+                            <td><input type="text" ng-model="vm.item.dianXin" /></td>
+                            <td><input type="text" ng-model="vm.item.lianTong" /></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">提现</td>
+                            <td class="text-center"><input type="text" ng-model="vm.item.kaChongZhi" /></td>
+                            <td colspan="3"></td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered" style="margin-bottom:0;">
+                        <tr class="text-center">
+                            <th colspan="5" class="text-center">
+                                现金充值
+                            </th>
+                        </tr>
+                        <tr class="text-center">
+                            <td rowspan="2" style="vertical-align:middle;width:100px;">充值</td>
+                            <td>支付宝</td>
+                            <td>微信</td>
+                            <td>财付通</td>
+                            <td>银行</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td><input type="text" ng-model="vm.item.zhiFuBao" /></td>
+                            <td><input type="text" ng-model="vm.item.weiXin" /></td>
+                            <td><input type="text" ng-model="vm.item.caiFuTong" /></td>
+                            <td><input type="text" ng-model="vm.item.yinHang" /></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">提现/转入</td>
+                            <td class="text-center">
+                                <input type="text" ng-model="vm.item.xianJinTiXian" />
+
+
+                            </td>
+                            <td colspan="3"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">收分、送分</h3>
+                </div>
+                <div class="panel-body">
+                    <h3 class="text-center">送分</h3>
+                    <div class="text-center" style="height:50px;"><input style="line-height:30px;" type="text" ng-model="vm.item.songFen" /></div>
+                    <h3 class="text-center">收分</h3>
+                    <div class="text-center" style="height:50px;"><input style="line-height:30px;" type="text" ng-model="vm.item.shouFen" /></div>
+                    <h3 class="text-center">手续费</h3>
+                    <div class="text-center" style="height:50px;"><input style="line-height:30px;" type="text" ng-model="vm.item.shouXuFei" /></div>
+                    <br />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <button type="submit" ng-disabled="vm.saving" class="btn btn-primary blue btn-block btn-lg" ng-click="vm.save()"><i class="fa fa-save"></i> <span>办理</span></button>
+        </div>
+    </div>
+</div>

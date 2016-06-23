@@ -1,0 +1,81 @@
+﻿<div class="page-header-inner">
+    <div class="page-logo">
+        <a href="#/">
+            <div class="logo-default">{{vm.settings.systemName}}-后台管理</div>
+        </a>
+        <div class="menu-toggler sidebar-toggler">
+            <span></span>
+        </div>
+
+    </div>
+
+    <div class="top-menu">
+        <ul class="nav navbar-nav pull-right" ng-if="settings.layout.showLoginInfo">
+
+            <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <i class="icon-bell"></i>
+                    <span class="badge badge-danger" ng-if="vm.unreadNotificationCount"> {{vm.unreadNotificationCount}} </span>
+                </a>
+                <ul class="dropdown-menu" id="UserNotificationDropdown">
+                    <li class="external notifications-header">
+                        <div class="text-left">
+                            <a href="" ng-click="vm.setAllNotificationsAsRead(); $event.preventDefault(); $event.stopPropagation();" ng-if="vm.unreadNotificationCount">Set all as read</a>
+                            <a class="pull-right" href="" ng-click="vm.openNotificationSettingsModal()">设置</a>
+                        </div>
+                    </li>
+                    <li>
+                        <ul ng-repeat="notification in vm.notifications" class="dropdown-menu-list">
+                            <li>
+                                <a href="{{notification.url}}" class="user-notification-item" ng-class="{'user-notification-item-unread': notification.state=='UNREAD', 'user-notification-item-clickable': notification.url}">
+                                    <span class="details">
+                                        <i class="{{notification.icon}}"></i> {{notification.text}}
+                                    </span>
+                                    <div>
+                                        <span class="notification-time" title="{{notification.time | momentFormat:'YYYY-MM-DD HH:mm:ss'}}" am-time-ago="notification.time"></span>
+                                        <span ng-if="notification.state=='UNREAD'"> - <span class="set-as-read-text" ng-click="vm.setNotificationAsRead(notification); $event.preventDefault(); $event.stopPropagation();">设为已读</span></span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-empty-text" ng-if="!vm.notifications.length">
+                            当前无消息。
+                        </div>
+                    </li>
+                    <li class="external notifications-footer" ng-if="vm.notifications.length">
+                        <div class="text-center"><a ui-sref="notifications">查看全部消息</a></div>
+                    </li>
+                </ul>
+            </li>
+            <li class="separator hide"> </li>
+
+            <li class="dropdown dropdown-user">
+                <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                    <span class="username username-hide-on-mobile"> {{vm.getShownUserName()}} </span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-default">
+                    <li>
+                        <a href="#/profile/dashboard">
+                            <i class="icon-settings"></i> 个人中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-envelope-open"></i> 系统消息
+                            <span class="badge badge-danger"> 3 </span>
+                        </a>
+                    </li>
+                  
+                    <li class="divider"></li>
+                    <li>
+                        <a href="" ng-click="vm.changePassword()"><i class="icon-key"></i> 修改密码</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Logout","Account")"><i class="icon-logout"></i>退出</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

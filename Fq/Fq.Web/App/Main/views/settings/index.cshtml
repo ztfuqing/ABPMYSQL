@@ -1,0 +1,32 @@
+﻿<div ng-controller="common.views.settings.index as vm">
+    <div class="row margin-bottom-5">
+        <div class="col-xs-6">
+            <div class="page-head">
+                <div class="page-title">
+                    <h1>
+                        <span>系统设置</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 text-right">
+            <button class="btn btn-primary blue" ng-click="vm.saveAll()"><i class="fa fa-floppy-o"></i> 保存全部</button>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div class="portlet-body">
+            <uib-tabset class="tab-container tabbable-line">
+
+                <uib-tab heading="基本信息">
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <input class="form-control" type="text" name="SystemName" ng-class="{'edited':vm.settings.systemName}" ng-model="vm.settings.systemName" required maxlength="128">
+                        <label>系统名称</label>
+                    </div>
+                </uib-tab>
+
+                <uib-tab heading="高级设置">
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

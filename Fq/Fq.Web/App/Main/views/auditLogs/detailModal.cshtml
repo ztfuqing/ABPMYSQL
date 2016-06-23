@@ -1,0 +1,140 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <span ng-if="!vm.user.id">审计日志详情</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal audit-log-detail-view" role="form">
+            <div class="form-body">
+                <h3 class="form-section">用户信息</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">用户名:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.userName}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">IP地址:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.clientIpAddress}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">客户端:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.clientName}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">浏览器:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.browserInfo}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.auditLog.impersonatorUserId">
+                            <label class="control-label col-sm-3"></label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static text-warning">
+                                    Note: This operation is performed by another user on behalf of this user.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section">操作信息</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">服务:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.serviceName}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">操作:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.methodName}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">时间:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.getExecutionTime()}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">持续时间:</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.getDurationAsMs()}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">参数:</label>
+                            <div class="col-sm-9">
+                                <pre lang="js">{{vm.getFormattedParameters()}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section">Custom data</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p class="form-control-static" ng-if="!vm.auditLog.customData">
+                                    None
+                                </p>
+                                <pre ng-if="vm.auditLog.customData">{{vm.auditLog.customData}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section">错误状态</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p class="form-control-static" ng-if="!vm.auditLog.exception">
+                                    <i class="fa fa-check-circle font-green"></i> 成功
+                                </p>
+                                <pre ng-if="vm.auditLog.exception">{{vm.auditLog.exception}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.close()">关闭</button>
+    </div>
+</div>

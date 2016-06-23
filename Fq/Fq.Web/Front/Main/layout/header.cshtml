@@ -1,0 +1,62 @@
+﻿
+<div class="page-header-top">
+    <div class="container">
+        <div class="page-logo">
+            <a href="#/dashboard.html">
+                <img src="{{settings.layoutPath}}/img/logo-default.jpg" alt="logo" class="logo-default">
+            </a>
+        </div>
+        <a href="javascript:;" class="menu-toggler"></a>
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown dropdown-user dropdown-dark">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle" src="{{settings.layoutPath}}/img/avatar9.jpg">
+                        <span class="username username-hide-mobile">{{vm.getShownUserName()}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="#/profile/dashboard">
+                                <i class="icon-user"></i>个人信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="vm.changePassword()">
+                                <i class="icon-calendar"></i>修改密码
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <a href="@Url.Action("Logout","Account")"><i class="icon-logout"></i>退出</a>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="page-header-menu">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#/">首页</a>
+                </li>
+                <li>
+                    <a href="#/liushui">当前班次流水</a>
+                </li>
+                <li>
+                    <a href="#/inventory">库存查询</a>
+                </li>
+                <li>
+                    <a href="#/report">统计报表</a>
+                </li>
+                <li>
+                    <a href="#/jiaoban">交班</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
